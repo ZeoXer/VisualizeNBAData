@@ -28,7 +28,7 @@ vnd = VisualizeNBAData("Nuggets", "Wairrors")
 ## 查看季賽數據圖
 呼叫plot_regular_stats方法，以圖表方式呈現所選球隊歷年(2011-12賽季開始)之
 
-季賽場均 (得分、助攻、籃板、命中率、三分球命中率、失誤) 六項數據。
+季賽場均 (得分、助攻、籃板、命中率、三分球命中率、失誤) 六項數據以及該賽季所遭遇對手之場均數據。
 ```
 vnd.plot_regular_stats()
 ```
@@ -37,12 +37,14 @@ vnd.plot_regular_stats()
 ## 查看季後賽數據圖
 呼叫plot_playoffs_stats方法，以圖表方式呈現所選球隊(2011-12賽季開始)之
 
-季後賽場均 (得分、助攻、籃板、命中率、三分球命中率、失誤) 六項數據。
+季後賽場均 (得分、助攻、籃板、命中率、三分球命中率、失誤) 六項數據以及該賽季所遭遇對手之場均數據。
 ```
 vnd.plot_playoffs_stats()
 ```
+<img src="./Images/playoffs_stats.png">
+
 ## 查看季賽球隊比較圖
-呼叫plot_regular_compared_stats方法，並需要額外輸入年份，
+呼叫plot_regular_compared_stats方法，此方法需要額外輸入年份，
 
 將呈現該賽季所選兩支球隊之
 
