@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-
-
-# In[38]:
 
 
 class VisualizeNBAData:
@@ -191,10 +185,5 @@ class VisualizeNBAData:
         except:
             pass
 
-
-# In[39]:
-
-
-vnd = VisualizeNBAData("Nuggets", 'Warriors')
-vnd.plot_playoffs_stats()
-
+if __name__ == "__main__":
+    vnd = VisualizeNBAData("Nuggets")
