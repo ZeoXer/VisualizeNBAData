@@ -50,3 +50,4 @@ vnd.plot_playoffs_stats()
 ```
 vnd.plot_regular_compared_stats(2020)
 ```
+<img src="./Images/regular_compared_stats.png">
