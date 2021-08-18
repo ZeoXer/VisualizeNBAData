@@ -21,7 +21,7 @@ vnd = VisualizeNBAData("Nuggets")
 
 若希望觀看球隊之間的比較圖，則需要再輸入第二支球隊名稱，例如：
 ```
-vnd = VisualizeNBAData("Nuggets", "Wairrors")
+vnd = VisualizeNBAData("Nuggets", "Warriors")
 ```
 如此一來便可順利查看球隊比較圖。
 
