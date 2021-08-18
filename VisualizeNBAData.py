@@ -1,17 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[115]:
-
-
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-
-
-# In[122]:
 
 
 class VisualizeNBAData:
@@ -27,6 +21,7 @@ class VisualizeNBAData:
         team_dict = requests.get(request_url).json()
         team_stats = team_dict['payload']['seasons']
         annual_dict_list = []
+        
         for i in range(len(team_stats)):
             annual_dict = {}           
             annual_dict['year'] = team_stats[i]['year']
@@ -34,7 +29,8 @@ class VisualizeNBAData:
             for k, v in team_stats[i]['team']['statAverage'].items():
                 if isinstance(v, float) or isinstance(v, int):
                     annual_dict[k] = v
-            annual_dict_list.append(annual_dict)         
+            annual_dict_list.append(annual_dict)
+            
         team_stats_df = pd.DataFrame(annual_dict_list)
         return team_stats_df
     
@@ -53,6 +49,7 @@ class VisualizeNBAData:
         opponent_dict = requests.get(request_url).json()
         opponent_stats = opponent_dict['payload']['seasons']
         annual_dict_list = []
+        
         for i in range(len(opponent_stats)):
             annual_dict = {}           
             annual_dict['year'] = opponent_stats[i]['year']
@@ -60,7 +57,8 @@ class VisualizeNBAData:
             for k, v in opponent_stats[i]['opponent']['statAverage'].items():
                 if isinstance(v, float) or isinstance(v, int):
                     annual_dict[k] = v
-            annual_dict_list.append(annual_dict)         
+            annual_dict_list.append(annual_dict)
+            
         opponent_stats_df = pd.DataFrame(annual_dict_list)
         return opponent_stats_df
     
@@ -80,6 +78,7 @@ class VisualizeNBAData:
             compared_team_dict = requests.get(request_url).json()
             compared_team_stats = compared_team_dict['payload']['seasons']
             annual_dict_list = []
+            
             for i in range(len(compared_team_stats)):
                 annual_dict = {}           
                 annual_dict['year'] = compared_team_stats[i]['year']
@@ -87,9 +86,11 @@ class VisualizeNBAData:
                 for k, v in compared_team_stats[i]['team']['statAverage'].items():
                     if isinstance(v, float) or isinstance(v, int):
                         annual_dict[k] = v
-                annual_dict_list.append(annual_dict)         
+                annual_dict_list.append(annual_dict)
+                
             compared_team_stats_df = pd.DataFrame(annual_dict_list)
             return compared_team_stats_df
+        
         except:
             print("Can't find the compared team!")
     
@@ -115,6 +116,7 @@ class VisualizeNBAData:
         stats_cols = ['pointsPg', 'assistsPg', 'rebsPg', 'fgpct', 'tppct', 'turnoversPg']
         years = list(np.array(team_regular_stats['year']).astype(int))
         fig, axes = plt.subplots(2, 3, figsize=(22, 12))
+        
         for num, col in enumerate(stats_cols):
             i = num // 3
             j = num % 3
@@ -130,6 +132,7 @@ class VisualizeNBAData:
             axes[i, j].set_ylabel(col, size=20)
             for x, y in enumerate(team_col):
                 axes[i, j].text(2011 + x - 0.4, y * 1.017, f"{y}", size=15)
+        
         axes[0, 0].legend(loc='lower right', fontsize=16)
         plt.tight_layout()
         plt.show()
@@ -140,6 +143,7 @@ class VisualizeNBAData:
         stats_cols = ['pointsPg', 'assistsPg', 'rebsPg', 'fgpct', 'tppct', 'turnoversPg']
         rows = list(team_playoffs_stats.index)
         fig, axes = plt.subplots(2, 3, figsize=(22, 12))
+        
         for num, col in enumerate(stats_cols):
             i = num // 3
             j = num % 3
@@ -155,6 +159,7 @@ class VisualizeNBAData:
             axes[i, j].set_ylabel(col, size=20)
             for x, y in zip(rows, team_col):
                 axes[i, j].text(x - 0.2, y * 1.019, f"{y}", size=15)
+                
         axes[0, 0].legend(loc='lower right', fontsize=16)
         plt.tight_layout()
         plt.show()  
@@ -166,10 +171,12 @@ class VisualizeNBAData:
         compared_team_regular_stats = self.create_compared_team_regular_stats()
         stats_cols = ['turnoversPg', 'rebsPg', 'assistsPg', 'tppct', 'fgpct', 'pointsPg']
         text_content = ['TO', "RB", "AST", "3P%", "FG%", "PTS"]
+        
         try:
             compared_team_year = compared_team_regular_stats[compared_team_regular_stats['year'] == year]
             team_year = team_regular_stats[team_regular_stats['year'] == year]
             fig, ax = plt.subplots(figsize=(12, 5))
+            
             for row, col, word in zip(list(range(6)), stats_cols, text_content):
                 compared_team_col = compared_team_year[col]
                 team_col = team_year[col]
@@ -182,18 +189,13 @@ class VisualizeNBAData:
                 ax.text(-6, row - 0.1, word, size=14)
                 ax.text(-team_col - 15, row - 0.1, f"{team_col.values[0]}", size=13)
                 ax.text(compared_team_col + 3, row - 0.1, f"{compared_team_col.values[0]}", size=13)
+            
             ax.set_title(f"{self._team} vs {self._compared_team} ({year[-2:]}-{next_year[-2:]} regular)", size=16)
             ax.set_xlim(-130, 130)
             ax.set_xticks([])
             ax.set_yticks([])
             plt.show()
+            
         except:
             pass
-
-
-# In[123]:
-
-
-cnd = VisualizeNBAData('Warriors', "Rockets")
-cnd.plot_regular_compared_stats(2016)
 
