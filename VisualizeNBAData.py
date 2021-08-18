@@ -199,3 +199,6 @@ class VisualizeNBAData:
         except:
             pass
 
+if __name__ == "__main__":
+    vnd = VisualizeNBAData("Nuggets")
+    
