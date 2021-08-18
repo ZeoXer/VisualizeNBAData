@@ -32,6 +32,7 @@ vnd = VisualizeNBAData("Nuggets", "Wairrors")
 ```
 vnd.plot_regular_stats()
 ```
+<img src="./Images/regular_stats.png">
 
 ## 查看季後賽數據圖
 呼叫plot_playoffs_stats方法，以圖表方式呈現所選球隊(2011-12賽季開始)之
