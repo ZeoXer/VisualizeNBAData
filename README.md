@@ -1,4 +1,12 @@
 # VisualizeNBAData
-This is a project which visualize NBA teams data,
-you can choose to see a stats of a team from 2011,
-or take a year and compare with another team.
+這個小專案主要以視覺化方式呈現NBA球隊的數據，具體呈現內容如下：
++ 初始建置
++ 查看季賽數據圖
++ 查看季後賽數據圖
++ 查看球隊比較圖
+
+## 初始建置
+一開始需要以
+
+## 季賽數據圖
+此方法從NBA台灣官方網站擷取資料，以圖表方式呈現所選球隊歷年(2011-12賽季開始)之場均得分、助攻、命中率、三分球命中率
