@@ -5,14 +5,47 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from PIL import Image
 
 
 class VisualizeNBAData:
     
     def __init__(self, team, compared_team=None):
-        self._team = team
-        self._compared_team = compared_team
+        self._teamlist = [
+            'hawks',
+            'celtics',
+            'bulls',
+            'hornets',
+            'nets',
+            'cavaliers',
+            'heat',
+            'knicks',
+            'pistons',
+            'magic',
+            'sixers',
+            'pacers',
+            'wizards',
+            'raptors',
+            'bucks',
+            'mavericks',
+            'nuggets',
+            'warriors',
+            'rockets',
+            'timberwolves',
+            'clippers',
+            'grizzlies',
+            'thunder',
+            'lakers',
+            'pelicans',
+            'blazers',
+            'suns',
+            'spurs',
+            'jazz',
+            'kings']
+        if team.lower() in self._teamlist and compared_team.lower() in self._teamlist:
+            self._team = team
+            self._compared_team = compared_team
+        else:
+            print("Incorrect team name!")
     
     #-------------------team stats-------------------#
     
