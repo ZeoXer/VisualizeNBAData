@@ -179,6 +179,8 @@ class VisualizeNBAData:
                 ax.text(compared_team_col + 3, row - 0.1, f"{compared_team_col.values[0]}", size=14)
             ax.set_title(f"{self._team} vs {self._compared_team} ({year[-2:]}-{next_year[-2:]} regular)", size=16)
             ax.set_xlim(-130, 130)
+            ax.text(-125, 0, self._team, size=18)
+            ax.text(95, 0, self._compared_team, size=18)
             ax.set_xticks([])
             ax.set_yticks([])
             plt.show()
