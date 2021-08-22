@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 import requests
 import pandas as pd
@@ -12,8 +10,6 @@ from tkinter import *
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-
-# In[19]:
 
 
 #------------VisualizeNBAData------------#
@@ -292,4 +288,3 @@ window.mainloop()
 if __name__ == '__main__':
     vnd = VisualizeNBAData()
     
-
