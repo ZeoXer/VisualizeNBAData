@@ -8,7 +8,12 @@
 + [查看季賽球隊比較圖](#查看季賽球隊比較圖)
 
 ## 使用方法
-目前只可在Anaconda Python 3以上環境運作T^T，日後有餘力將嘗試包裝.exe以方便執行。
+
+目前在Anaconda Python 3以上環境可執行```VisualizeNBAData.py```，詳細說明如下，
+
+另外若是跑```VisualizeNBAData_tk.py```為視窗介面的版本，操作上較為直觀簡單，
+
+由於打包.exe檔時遭遇了一些問題，目前還沒有.exe檔可供直接運行T^T。
 
 ## 初始建置
 在```VisualizeNBAData.py```中的初始預設為：
